@@ -1,0 +1,35 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhmtl" 
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:c="http://java.sun.com/jsp/jstl/core"
+	  template="/include/template.xhtml">
+	  
+	<ui:define name="conteudo">
+		
+		<h4>Novo material - 
+		<h:outputText value="#{usuarioMBean.usuarioLogado.login}"/> </h4>
+		
+		<h:message for=""/>
+		
+		<h:form>
+			<fieldset>
+				<p>Codigo</p> <p><h:inputText value="#{materialMBean.material.codigo}" required="true"
+					requiredMessage="Código obrigatorio"/> 
+				</p>
+				<p>Descrição </p><p> <h:inputText value="#{materialMBean.material.descricao}"/> </p>
+				<p>Data de Cadastro </p>
+					<p>
+					<h:inputText value="#{materialMBean.material.dataCadastro}" id="data"> <f:convertDateTime pattern="dd/MM/yyyy"/>					
+					</h:inputText>
+				</p>
+				
+				<p>
+					<h:commandButton action="#{materialMBean.cadastrarMaterial}" value="Cadastrar"/>
+					<h:commandButton action="#{materialMBean.listarMaterial}" value="Listar Materiais"/>
+				</p>
+					
+			</fieldset>
+		</h:form>
+	</ui:define>	 
+	  
+</ui:composition>
